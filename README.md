@@ -1,4 +1,7 @@
-Include a README.md file that explains the contents of the repo.
-The code in the repo should be neat and well documented.  Likely this won't be the "first draft" of your code.
-DO NOT include any private API keys in your code or elsewhere in the repo.
-If possible, include your dataset in the repo. 
+This repository contains code for retrieving and analyzing economic data from the Federal Reserve Economic Data (FRED) database using Python. The code utilizes the fredapi package to access various economic indicators such as GDP, unemployment rate, inflation rate, housing prices, and more.
+
+USAGE:
+Obtain a FRED API key from the FRED website.
+Store the API key in a file named api_key.txt in the root directory of the repository.
+
+No Api keys -

@@ -3,5 +3,3 @@ This repository contains code for retrieving and analyzing economic data from th
 USAGE:
 Obtain a FRED API key from the FRED website.
 Store the API key in a file named api_key.txt in the root directory of the repository.
-
-No Api keys -

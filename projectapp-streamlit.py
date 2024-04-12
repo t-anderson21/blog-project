@@ -44,3 +44,21 @@ plt.tight_layout()
 
 # Display the plot using st.pyplot()
 st.pyplot(plt)
+
+
+
+# Allow user to select the variable
+selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP'])
+
+# Create a line plot based on the selected variable
+plt.figure(figsize=(10, 6))
+plt.plot(filtered_df['date'], filtered_df[selected_variable], marker='o', linestyle='-')
+plt.title(f'{selected_variable} from 2019 to 2024')
+plt.xlabel('Date')
+plt.ylabel(selected_variable)
+plt.grid(True)
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+
+# Display the plot using st.pyplot()
+st.pyplot(plt)

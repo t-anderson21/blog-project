@@ -4,9 +4,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-
-base="dark"
-primaryColor="purple"
+st.set_page_config(
+    page_title="My Streamlit App",
+    page_icon=":chart_with_upwards_trend:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    # Set theme
+    theme="dark",
+    primaryColor="purple"
+)
 
 st.title('Economic Indicator Trends')
 st.caption("Data Project for my Stat 386 class")
@@ -19,11 +25,9 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 #df.head()
 
-full_df.head()
+print(full_df.head())
 
 
-
-st.divider()
 st.title('Correlation between _____')
 
 

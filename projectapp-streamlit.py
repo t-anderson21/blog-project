@@ -52,7 +52,7 @@ selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP'])
 
 # Create a line plot based on the selected variable
 plt.figure(figsize=(10, 6))
-plt.plot(filtered_df['date'], filtered_df[selected_variable], marker='o', linestyle='-')
+plt.plot(filtered_df['Date'], filtered_df[selected_variable], marker='o', linestyle='-')
 plt.title(f'{selected_variable} from 2019 to 2024')
 plt.xlabel('Date')
 plt.ylabel(selected_variable)

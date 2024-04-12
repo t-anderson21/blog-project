@@ -22,8 +22,6 @@ st.divider()
 st.title('Correlation between _____')
 
 
-# Make Correlation Table
-
 st.divider()
 
 

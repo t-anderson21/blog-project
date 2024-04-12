@@ -16,21 +16,5 @@ full_df.head()
 
 
 
-# Create the correlation matrix
-corr_matrix = full_df.corr()
-
-# Set up the matplotlib figure
-plt.figure(figsize=(10, 8))
-
-# Plot the heatmap
-sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu')
-
-# Add title
-plt.title('Correlation Matrix Heatmap')
-
-# Display the heatmap
-plt.show()
-
-
 st.divider()
 st.title('Correlation between _____')

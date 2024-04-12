@@ -15,6 +15,7 @@ st.divider()
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
 #df = pd.read_csv(url)
 full_df = pd.read_csv("full_data.csv")
+full_df['date'] = pd.to_datetime(full_df['date'])
 
 #df.head()
 

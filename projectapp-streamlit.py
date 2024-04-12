@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-# Set the theme to "light"
-st.set_theme('light')
+
+base="dark"
+primaryColor="purple"
 
 st.title('Economic Indicator Trends')
 st.caption("Data Project for my Stat 386 class")

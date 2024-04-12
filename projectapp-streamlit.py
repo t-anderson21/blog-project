@@ -30,17 +30,14 @@ st.title('Correlation between _____')
 st.divider()
 
 
-# Create the correlation matrix
-corr_matrix = full_df.corr()
-
-# Set up the matplotlib figure
-plt.figure(figsize=(10, 8))
-
-# Plot the heatmap
-sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu')
-
-# Add title
-plt.title('Correlation Matrix Heatmap')
-
-# Display the heatmap
+filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
+# Create a line plot
+plt.figure(figsize=(10, 6))
+plt.plot(filtered_df['Date'], filtered_df['CIVPART'], marker='o', linestyle='-')
+plt.title('CIVPART from 2019 to 2024')
+plt.xlabel('Date')
+plt.ylabel('CIVPART')
+plt.grid(True)
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
 plt.show()

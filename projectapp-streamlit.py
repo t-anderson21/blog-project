@@ -4,16 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-st.set_page_config(
-    page_title="My Streamlit App",
-    page_icon=":chart_with_upwards_trend:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    # Set theme
-    theme="dark",
-    primaryColor="purple"
-)
-
 st.title('Economic Indicator Trends')
 st.caption("Data Project for my Stat 386 class")
 st.divider()

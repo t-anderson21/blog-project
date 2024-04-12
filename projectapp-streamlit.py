@@ -24,14 +24,6 @@ st.title('Correlation between _____')
 
 # Make Correlation Table
 
-# Merge CPI and unemployment DataFrames on the 'Date' column
-merged_df = pd.merge(cpi_df, unemployment_df, on='Date')
-
-# Calculate the correlation between CPI and unemployment rate
-correlation = merged_df['CPI'].corr(merged_df['Unemployment Rate'])
-
-print("Correlation between CPI and Unemployment Rate:", correlation)
-
 st.divider()
 
 

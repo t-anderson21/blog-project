@@ -20,19 +20,20 @@ st.sidebar.markdown("# Main page 🎈")
 st.sidebar.markdown("# Page 2 ❄️")
 st.sidebar.markdown("# Page 3 🎉")
 
-with st.sidebar:
-    year = st.slider('Choose a year', 1948, 2023)
-    st.header(f'Top Indicators?? {year}')
-    year_df = full_df[full_df['Date'].dt.year == year]
-    year_df = year_df.round(2)
-    
-    # Define a function to apply background gradient to columns
-    #def background_gradient(df):
-     #   return df.style.background_gradient(cmap='Blues')
 
-    # Display the head of the DataFrame with style shading the columns
-    #st.dataframe(background_gradient(year_df))
-    st.write(year_df)
+year = st.slider('Choose a year', 1948, 2023)
+st.header(f'Top Indicators?? {year}')
+year_df = full_df[full_df['Date'].dt.year == year]
+year_df['Date'] = year_df['Date'].dt.strftime('%Y-%m-%d')
+year_df = year_df.round(2)
+    
+# Define a function to apply background gradient to columns
+def background_gradient(df):
+     return df.style.background_gradient(cmap='Blues')
+
+# Display the head of the DataFrame with style shading the columns
+st.dataframe(background_gradient(year_df))
+#st.write(year_df)
 
 
 st.divider()

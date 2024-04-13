@@ -30,9 +30,8 @@ with st.sidebar:
     year = st.slider('Choose a year', 1948, 2023)
     st.header(f'Top names by {year}')
     year_df = full_df[full_df['Date'].dt.year == year]
-
-st.write("Filtered DataFrame by Year:")
-st.write(year_df)
+    st.write(f"Filtered DataFrame by Year:{year_df}")
+    st.write(year_df)
 
 
 st.divider()

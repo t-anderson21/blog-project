@@ -14,13 +14,22 @@ st.sidebar.markdown("# Page 2 ❄️")
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
 #df = pd.read_csv(url)
 full_df = pd.read_csv("full_data.csv")
+
 full_df['Date'] = pd.to_datetime(full_df['Date'])
+
+# filtered data for after 2019
+filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
 print(full_df.head())
 
 
 st.title('Correlation between _____')
+
+
 st.divider()
+
+
+
 
 
 # Allow user to select the variable
@@ -39,3 +48,19 @@ plt.tight_layout()
 # Display the plot using st.pyplot()
 st.pyplot(plt)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Add Sources button at the bottom

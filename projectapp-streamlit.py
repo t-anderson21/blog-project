@@ -12,12 +12,6 @@ st.divider()
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
-# Define a function to apply background gradient to columns
-def background_gradient(df):
-    return df.style.background_gradient(cmap='Blues')
-
-# Display the head of the DataFrame with style shading the columns
-st.dataframe(background_gradient(full_df.tail()))
 
 # filtered data for after 2019
 filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
@@ -31,6 +25,12 @@ with st.sidebar:
     st.header(f'Top Indicators?? {year}')
     year_df = full_df[full_df['Date'].dt.year == year]
     #st.write(f"Filtered DataFrame by Year:{year_df}")
+    # Define a function to apply background gradient to columns
+    def background_gradient(df):
+        return df.style.background_gradient(cmap='Blues')
+
+    # Display the head of the DataFrame with style shading the columns
+    st.dataframe(background_gradient(year_df))
     st.write(year_df)
 
 

@@ -8,13 +8,8 @@ st.title('Economic Indicator Trends')
 st.caption("App Creation for my Stat 386 class")
 st.divider()
 
-st.markdown("# Main page 🎈")
 st.sidebar.markdown("# Main page 🎈")
-
-st.markdown("# Page 2 ❄️")
 st.sidebar.markdown("# Page 2 ❄️")
-
-st.markdown("# Page 3 🎉")
 st.sidebar.markdown("# Page 3 🎉")
 
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
@@ -66,18 +61,35 @@ st.header('Correlation Matrix')
 corr_matrix = full_df.corr()
 
 # Set up the matplotlib figure
-fig, ax = plt.subplots(figsize=(10, 8))
+# fig, ax = plt.subplots(figsize=(10, 8))
 
 # Plot the heatmap
-sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
+# sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
 
 # Add title
-ax.set_title('Correlation Matrix Heatmap')
+# ax.set_title('Correlation Matrix Heatmap')
 
 # Display the heatmap in Streamlit
-st.pyplot(fig)
+# st.pyplot(fig)
 
+# Display the correlation matrix DataFrame
+st.write("Correlation Matrix:", corr_matrix)
 
+# Option to display heatmap
+display_heatmap = st.checkbox("Display Heatmap")
+
+if display_heatmap:
+    # Set up the matplotlib figure
+    fig, ax = plt.subplots(figsize=(10, 8))
+
+    # Plot the heatmap
+    sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
+
+    # Add title
+    ax.set_title('Correlation Matrix Heatmap')
+
+    # Display the heatmap in Streamlit
+    st.pyplot(fig)
 
 
 

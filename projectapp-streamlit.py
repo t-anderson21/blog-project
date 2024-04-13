@@ -8,12 +8,7 @@ st.title('Economic Indicator Trends')
 st.caption("App Creation for my Stat 386 class")
 st.divider()
 
-st.sidebar.markdown("# Main page 🎈")
-st.sidebar.markdown("# Page 2 ❄️")
-st.sidebar.markdown("# Page 3 🎉")
-
-#url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
-#df = pd.read_csv(url)
+# Read in dataset from GitHub
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
@@ -27,9 +22,18 @@ st.dataframe(background_gradient(full_df.tail()))
 # filtered data for after 2019
 filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
+st.sidebar.markdown("# Main page 🎈")
+st.sidebar.markdown("# Page 2 ❄️")
+st.sidebar.markdown("# Page 3 🎉")
 
-# add header of dataset on one of the pages??
-print(full_df.head())
+with st.sidebar:
+    year = st.slider('Choose a year', 1948, 2023)
+    st.header(f'Top names by {year}')
+    year_df = full_df[full_df['Date'].dt.year == year]
+
+st.write("Filtered DataFrame by Year:")
+st.write(year_df)
+
 
 st.divider()
 
@@ -37,7 +41,8 @@ st.divider()
 
 
 # Allow user to select the variable
-selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP', 'Nominal GDP', 'Unemployment Rate'])
+selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'Nominal GDP', 'Unemployment Rate'])
+
 st.header(f'Trends of {selected_variable} over the last 5 years')
 
 # Create a line plot based on the selected variable
@@ -59,18 +64,6 @@ st.header('Correlation Matrix')
 
 ## Display Correlation Matrix
 corr_matrix = full_df.corr()
-
-# Set up the matplotlib figure
-# fig, ax = plt.subplots(figsize=(10, 8))
-
-# Plot the heatmap
-# sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
-
-# Add title
-# ax.set_title('Correlation Matrix Heatmap')
-
-# Display the heatmap in Streamlit
-# st.pyplot(fig)
 
 # Display the correlation matrix DataFrame
 st.write("Strength of Relationship between Indicators:", corr_matrix)
@@ -97,6 +90,7 @@ if display_heatmap:
 
 
 
+st.divider()
 
 # Add Source button at the bottom
 st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

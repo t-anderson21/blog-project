@@ -73,7 +73,7 @@ corr_matrix = full_df.corr()
 # st.pyplot(fig)
 
 # Display the correlation matrix DataFrame
-st.write("Correlation Matrix:", corr_matrix)
+st.write("Strenght of Relationship between Indicators:", corr_matrix)
 
 # Option to display heatmap
 display_heatmap = st.checkbox("Display Heatmap")

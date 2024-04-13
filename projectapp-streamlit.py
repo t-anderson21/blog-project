@@ -24,10 +24,12 @@ print(full_df.head())
 
 st.divider()
 
-st.header(f'Trends of {name} over the last 5 years')
+
+
 
 # Allow user to select the variable
 selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP', 'Nominal GDP', 'Unemployment Rate'])
+st.header(f'Trends of {selected_variable} over the last 5 years')
 
 # Create a line plot based on the selected variable
 plt.figure(figsize=(10, 6))

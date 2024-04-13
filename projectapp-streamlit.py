@@ -22,15 +22,9 @@ filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
 print(full_df.head())
 
-
-st.title('Correlation between _____')
-
-
 st.divider()
 
-
-
-
+st.header(f'Trends of {name} over the last 5 years')
 
 # Allow user to select the variable
 selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP', 'Nominal GDP', 'Unemployment Rate'])
@@ -48,10 +42,24 @@ plt.tight_layout()
 # Display the plot using st.pyplot()
 st.pyplot(plt)
 
+st.divider()
 
+st.header('Correlation Matrix')
 
+## Display Correlation Matrix
+corr_matrix = full_df.corr()
 
+# Set up the matplotlib figure
+fig, ax = plt.subplots(figsize=(10, 8))
 
+# Plot the heatmap
+sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
+
+# Add title
+ax.set_title('Correlation Matrix Heatmap')
+
+# Display the heatmap in Streamlit
+st.pyplot(fig)
 
 
 

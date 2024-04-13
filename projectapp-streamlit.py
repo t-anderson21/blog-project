@@ -20,7 +20,13 @@ st.sidebar.markdown("# Page 3 🎉")
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
 #df = pd.read_csv(url)
 full_df = pd.read_csv("full_data.csv")
-st.dataframe(full_df.tail(10).style.highlight_max(axis=0))
+st.dataframe(full_df.tail(5).style.highlight_max(axis=0))
+
+def background_gradient(df):
+    return df.style.background_gradient(cmap='Blues')
+
+# Display the head of the DataFrame with style shading the columns
+st.dataframe(background_gradient(full_df.head()))
 
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 

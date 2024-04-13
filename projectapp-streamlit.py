@@ -28,9 +28,9 @@ st.sidebar.markdown("# Page 3 🎉")
 
 with st.sidebar:
     year = st.slider('Choose a year', 1948, 2023)
-    st.header(f'Top names by {year}')
+    st.header(f'Top Indicators?? {year}')
     year_df = full_df[full_df['Date'].dt.year == year]
-    st.write(f"Filtered DataFrame by Year:{year_df}")
+    #st.write(f"Filtered DataFrame by Year:{year_df}")
     st.write(year_df)
 
 

@@ -20,6 +20,8 @@ st.sidebar.markdown("# Page 3 🎉")
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
 #df = pd.read_csv(url)
 full_df = pd.read_csv("full_data.csv")
+st.dataframe(full_df.head().style.highlight_max(axis=0))
+
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 # filtered data for after 2019

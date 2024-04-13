@@ -8,12 +8,13 @@ st.title('Economic Indicator Trends')
 st.caption("Data Project for my Stat 386 class")
 st.divider()
 
+st.markdown("# Page 2 ❄️")
+st.sidebar.markdown("# Page 2 ❄️")
+
 #url = 'https://github.com/t-anderson21/blog-project/blob/main/full_data.csv' # update this...
 #df = pd.read_csv(url)
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
-
-#df.head()
 
 print(full_df.head())
 
@@ -56,3 +57,4 @@ plt.tight_layout()
 
 # Display the plot using st.pyplot()
 st.pyplot(plt)
+

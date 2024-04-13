@@ -83,7 +83,7 @@ if display_heatmap:
     fig, ax = plt.subplots(figsize=(10, 8))
 
     # Plot the heatmap
-    sns.heatmap(corr_matrix, annot=True, cmap='darkgrid', ax=ax)
+    sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
 
     # Add title
     ax.set_title('Correlation Matrix Heatmap')

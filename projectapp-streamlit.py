@@ -20,26 +20,7 @@ print(full_df.head())
 
 
 st.title('Correlation between _____')
-
-
 st.divider()
-
-
-filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
-
-# Create a line plot
-plt.figure(figsize=(10, 6))
-plt.plot(filtered_df['Date'], filtered_df['CIVPART'], marker='o', linestyle='-')
-plt.title('CIVPART from 2019 to 2024')
-plt.xlabel('Date')
-plt.ylabel('CIVPART')
-plt.grid(True)
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.tight_layout()
-
-# Display the plot using st.pyplot()
-st.pyplot(plt)
-
 
 
 # Allow user to select the variable

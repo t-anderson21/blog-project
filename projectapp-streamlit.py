@@ -43,7 +43,7 @@ st.pyplot(plt)
 
 
 # Allow user to select the variable
-selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP'])
+selected_variable = st.selectbox("Select Variable", ['CIVPART', 'CPI', 'GDP', 'Nominal GDP', 'Unemployment Rate'])
 
 # Create a line plot based on the selected variable
 plt.figure(figsize=(10, 6))

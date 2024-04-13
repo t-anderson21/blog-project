@@ -73,7 +73,7 @@ corr_matrix = full_df.corr()
 # st.pyplot(fig)
 
 # Display the correlation matrix DataFrame
-st.write("Strenght of Relationship between Indicators:", corr_matrix)
+st.write("Strength of Relationship between Indicators:", corr_matrix)
 
 # Option to display heatmap
 display_heatmap = st.checkbox("Display Heatmap")
@@ -83,7 +83,7 @@ if display_heatmap:
     fig, ax = plt.subplots(figsize=(10, 8))
 
     # Plot the heatmap
-    sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
+    sns.heatmap(corr_matrix, annot=True, cmap='darkgrid', ax=ax)
 
     # Add title
     ax.set_title('Correlation Matrix Heatmap')
@@ -98,5 +98,5 @@ if display_heatmap:
 
 
 
-
-# Add Sources button at the bottom
+# Add Source button at the bottom
+st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

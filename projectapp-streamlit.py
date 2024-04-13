@@ -24,6 +24,7 @@ with st.sidebar:
     year = st.slider('Choose a year', 1948, 2023)
     st.header(f'Top Indicators?? {year}')
     year_df = full_df[full_df['Date'].dt.year == year]
+    year_df = year_df.round(2)
     #st.write(f"Filtered DataFrame by Year:{year_df}")
     # Define a function to apply background gradient to columns
     def background_gradient(df):
@@ -31,7 +32,7 @@ with st.sidebar:
 
     # Display the head of the DataFrame with style shading the columns
     st.dataframe(background_gradient(year_df))
-    st.write(year_df)
+    #st.write(year_df)
 
 
 st.divider()

@@ -11,21 +11,21 @@ st.write("_______")
 
 # Filter DataFrame for data from 2018 to present
 start_date = '2018-01-01'
-end_date = pd.to_datetime('today').strftime('%Y-%m-%d')
+end_date = pd.Timestamp.now().strftime('%Y-%m-%d')
 selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
 
-# Allow the user to select the month and year
-selected_date = st.date_input('Select a date', value=pd.to_datetime('today'), min_value=pd.to_datetime('2018-01-01'), max_value=pd.to_datetime('today'))
+# Allow the user to select the month
+selected_month = st.slider('Select month', min_value=1, max_value=12, value=1)
 
-# Filter DataFrame based on selected month and year
-selected_data = selected_data[selected_data['Date'] <= selected_date]
+# Filter DataFrame based on selected month
+selected_data = selected_data[selected_data['Date'].dt.month == selected_month]
 
 # Plot CPI
 plt.figure(figsize=(10, 6))
 plt.plot(selected_data['Date'], selected_data['CPI'], marker='o')
 plt.xlabel('Date')
 plt.ylabel('CPI')
-plt.title('Consumer Price Index (CPI)')
+plt.title(f'CPI from 2018 to Present (Month: {selected_month})')
 plt.xticks(rotation=45)
 plt.grid(True)
 

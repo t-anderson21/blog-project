@@ -9,25 +9,17 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 st.title("Trends during the COVID-19 pandemic")
 st.write("_______")
 
-# Filter DataFrame for data from 2018 to present
-start_date = '2018-01-01'
-end_date = pd.Timestamp.now().strftime('%Y-%m-%d')
-selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
+# Filter data from 2018 to present
+cpi_data = full_df[(full_df['Date'].dt.year >= 2018)]
 
-# Allow the user to select the month
-selected_month = st.slider('Select month', min_value=1, max_value=12, value=1)
-
-# Filter DataFrame based on selected month
-selected_data = selected_data[selected_data['Date'].dt.month == selected_month]
-
-# Plot CPI
+# Create a line plot of CPI
 plt.figure(figsize=(10, 6))
-plt.plot(selected_data['Date'], selected_data['CPI'], marker='o')
+plt.plot(cpi_data['Date'], cpi_data['CPI'], marker='o', linestyle='-')
+plt.title('CPI Trends (2018 - Present)')
 plt.xlabel('Date')
 plt.ylabel('CPI')
-plt.title(f'CPI from 2018 to Present (Month: {selected_month})')
-plt.xticks(rotation=45)
 plt.grid(True)
+plt.xticks(rotation=45)
 
 # Display the plot
 st.pyplot(plt)

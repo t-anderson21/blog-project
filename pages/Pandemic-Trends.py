@@ -5,6 +5,9 @@ import seaborn as sns
 import streamlit as st
 from datetime import datetime, timedelta
 
+full_df = pd.read_csv("full_data.csv")
+full_df['Date'] = pd.to_datetime(full_df['Date'])
+
 st.title("Trends during the COVID-19 pandemic")
 st.write("_______")
 
@@ -19,7 +22,7 @@ start_date = datetime(selected_year, selected_month, 1)
 end_date = start_date + timedelta(days=365*5)
 
 # Filter DataFrame based on selected date range
-selected_data = cpi_df[(cpi_df['Date'] >= start_date) & (cpi_df['Date'] <= end_date)]
+selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
 
 # Plot CPI
 plt.figure(figsize=(10, 6))

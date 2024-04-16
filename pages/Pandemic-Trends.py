@@ -28,3 +28,5 @@ st.pyplot(plt)
 
 
 st.header("Future Research on Predictors of Recessions....")
+
+st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

@@ -57,7 +57,7 @@ st.pyplot(plt)
 
 
 
-st.header('See more on Pages 2 and 3')
+st.write('See more on Pages 2 and 3')
 st.divider()
 # Add Source button at the bottom
 st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

@@ -51,19 +51,19 @@ st.header("Comparison of Unemployment Rate and CIVPART")
 st.write("🎈 CIVPART measures the percentage of the working-age population who are either employed or actively seeking employment 🎈")
 
 # Allow the user to select the duration of data to visualize
-selected_duration = st.selectbox('Select years', ['20 years', '15 years', '10 years', '5 years', 'Past year'])
+CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 years', '5 years', 'Past year'])
 
 # Calculate start date based on selected duration
 end_date = datetime.now()
-if selected_duration == 'Last year':
+if CIVPART_duration == 'Last year':
     start_date = end_date - timedelta(days=365)
-elif selected_duration == 'Last 5 years':
+elif CIVPART_duration == 'Last 5 years':
     start_date = end_date - timedelta(days=365*5)
-elif selected_duration == 'Last 10 years':
+elif CIVPART_duration == 'Last 10 years':
     start_date = end_date - timedelta(days=365*10)
-elif selected_duration == 'Last 15 years':
+elif CIVPART_duration == 'Last 15 years':
     start_date = end_date - timedelta(days=365*15)
-elif selected_duration == 'Last 20 years':
+elif CIVPART_duration == 'Last 20 years':
     start_date = end_date - timedelta(days=365*20)
 
 # Filter DataFrame based on selected duration

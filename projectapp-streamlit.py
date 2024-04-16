@@ -4,14 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-# Set Streamlit configuration options dynamically
-st.set_option('theme.base', 'light')
-st.set_option('theme.primaryColor', '#f63366')
-st.set_option('theme.backgroundColor', '#ffffff')
-st.set_option('theme.secondaryBackgroundColor', '#f0f2f6')
-st.set_option('theme.textColor', '#262730')
-st.set_option('theme.font', 'sans serif')
-
 st.title('Economic Indicator Trends')
 st.caption("App Creation for my Stat 386 class")
 st.divider()

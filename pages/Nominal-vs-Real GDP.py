@@ -50,7 +50,7 @@ st.header("Comparison of the Unemployment Rate and Civilian Labor Force Particip
 st.write("🎈______________🎈")
 
 # Allow the user to select the duration of data to visualize
-selected_duration = st.selectbox('Select duration', ['Last year', 'Last 5 years', 'Last 10 years', 'Last 20 years'])
+selected_duration = st.selectbox('Select duration', ['Last 20 years', 'Last 15 years', 'Last 10 years', 'Last 5 years', 'Last year'])
 
 # Calculate start date based on selected duration
 end_date = datetime.now()
@@ -60,6 +60,8 @@ elif selected_duration == 'Last 5 years':
     start_date = end_date - timedelta(days=365*5)
 elif selected_duration == 'Last 10 years':
     start_date = end_date - timedelta(days=365*10)
+elif selected_duration == 'Last 15 years':
+    start_date = end_date - timedelta(days=365*15)
 elif selected_duration == 'Last 20 years':
     start_date = end_date - timedelta(days=365*20)
 

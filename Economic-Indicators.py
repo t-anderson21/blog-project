@@ -17,10 +17,6 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 # filtered data for after 2019
 filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
-st.sidebar.markdown("# Page 2 ❄️")
-st.sidebar.markdown("# Page 3 🎉")
-
-
 year = st.slider('Choose a year', 1948, 2023)
 st.header(f'Top Indicators -- shift to page 2 ? {year}')
 year_df = full_df[full_df['Date'].dt.year == year]
@@ -56,38 +52,12 @@ plt.tight_layout()
 # Display the plot using st.pyplot()
 st.pyplot(plt)
 
-st.divider()
-
-st.header('Correlation Matrix')
-
-## Display Correlation Matrix
-corr_matrix = full_df.corr()
-
-# Display the correlation matrix DataFrame
-st.write("Strength of Relationship between Indicators:", corr_matrix)
-
-# Option to display heatmap
-display_heatmap = st.checkbox("Display Heatmap")
-
-if display_heatmap:
-    # Set up the matplotlib figure
-    fig, ax = plt.subplots(figsize=(10, 8))
-
-    # Plot the heatmap
-    sns.heatmap(corr_matrix, annot=True, cmap='YlGnBu', ax=ax)
-
-    # Add title
-    ax.set_title('Correlation Matrix Heatmap')
-
-    # Display the heatmap in Streamlit
-    st.pyplot(fig)
-
 
 
 st.divider()
 
 # Allow the user to select the duration of data to visualize
-selected_duration = st.selectbox('Select duration', ['Last year', 'Last 5 years', 'Last 10 years', 'Last 20 years'])
+selected_duration = st.selectbox('Select duration', ['Last 20 years', 'Last 10 years', 'Last 5 years', 'Last year' ])
 
 # Calculate start date based on selected duration
 end_date = datetime.now()

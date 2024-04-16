@@ -56,18 +56,18 @@ CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 yea
 # Calculate start date based on selected duration
 end_date = datetime.now()
 if CIVPART_duration == 'Last year':
-    start_date = end_date - timedelta(days=365)
+    start_date1 = end_date - timedelta(days=365)
 elif CIVPART_duration == 'Last 5 years':
-    start_date = end_date - timedelta(days=365*5)
+    start_date1 = end_date - timedelta(days=365*5)
 elif CIVPART_duration == 'Last 10 years':
-    start_date = end_date - timedelta(days=365*10)
+    start_date1 = end_date - timedelta(days=365*10)
 elif CIVPART_duration == 'Last 15 years':
-    start_date = end_date - timedelta(days=365*15)
+    start_date1 = end_date - timedelta(days=365*15)
 elif CIVPART_duration == 'Last 20 years':
-    start_date = end_date - timedelta(days=365*20)
+    start_date1 = end_date - timedelta(days=365*20)
 
 # Filter DataFrame based on selected duration
-selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
+selected_data = full_df[(full_df['Date'] >= start_date1) & (full_df['Date'] <= end_date)]
 
 # Plot Unemployment and CIVPART
 plt.figure(figsize=(10, 6))

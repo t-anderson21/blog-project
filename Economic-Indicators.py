@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 st.title("Economic Indicator Trends")
 #st.sidebar.markdown("Economic Indicator Trends")
-st.caption("App Creation for my Stat 386 class")
+st.caption("Project App Creation for Stat 386")
 st.divider()
 
 st.write("This app is designed to help explore my economic trends dataset")

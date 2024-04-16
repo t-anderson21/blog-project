@@ -15,9 +15,8 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 # filtered data for after 2019
-filtered_df = full_df[(full_df['Date'].dt.year >= 1950)]
+filtered_df = full_df[(full_df['Date'].dt.year >= 2000)]
 
-st.caption("Filtered to be from 1950 to present")
 
 year = st.slider('Choose a year', 1948, 2023)
 st.header(f'Top Indicators -- shift to page 2 ? {year}')
@@ -39,7 +38,9 @@ st.divider()
 # Allow user to select the variable
 selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'Nominal GDP', 'Unemployment Rate'])
 
-st.header(f'Trends of {selected_variable} over the last 5 years')
+
+st.header(f'Trends of {selected_variable} since 2000')
+st.caption("FRED data starts in 1945")
 
 # Create a line plot based on the selected variable
 plt.figure(figsize=(10, 6))

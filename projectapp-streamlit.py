@@ -88,11 +88,35 @@ if display_heatmap:
 
 
 
+st.divider()
 
+# Sidebar: Select start and end dates
+start_date = st.sidebar.date_input('Start Date', min_value=full_df['Date'].min(), max_value=full_df['Date'].max(), value=full_df['Date'].min())
+end_date = st.sidebar.date_input('End Date', min_value=full_df['Date'].min(), max_value=full_df['Date'].max(), value=full_df['Date'].max())
 
+# Filter DataFrame based on selected dates
+filtered_df = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
+
+# Plot Nominal GDP and GDP
+plt.figure(figsize=(10, 6))
+plt.plot(filtered_df['Date'], filtered_df['Nominal GDP'], label='Nominal GDP', color='blue')
+plt.plot(filtered_df['Date'], filtered_df['GDP'], label='GDP', color='green')
+
+# Add title and labels
+plt.title('Nominal GDP vs. GDP')
+plt.xlabel('Date')
+plt.ylabel('Amount')
+
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45)
+
+# Add legend
+plt.legend()
+
+# Show plot
+st.pyplot(plt)
 
 
 st.divider()
-
 # Add Source button at the bottom
 st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

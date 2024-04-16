@@ -9,14 +9,16 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 
-st.title("❄️ Correlation Matrix ❄️")
+st.title("Correlation Matrix")
 st.write("A table used to identify and visualize patterns in the economic data I created")
 st.divider()
+
+st.write("add something about 0< <1  created")
 
 st.header('Strength of Relationship between Indicators:')
 
 ## Display Correlation Matrix
-corr_matrix = full_df.corr()
+corr_matrix = full_df.drop(columns=['Date']).corr()
 
 # Option to display heatmap
 display_heatmap = st.checkbox("Display Heatmap")

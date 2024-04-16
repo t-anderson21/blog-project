@@ -88,7 +88,7 @@ plt.grid(True)
 st.pyplot(plt)
 
 
-st.title('See more on Pages 2 or 3')
+st.header('See more on Pages 2 or 3')
 st.divider()
 # Add Source button at the bottom
 st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

@@ -9,18 +9,15 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 
-st.title("❄️ Page 2 ❄️")
+st.title("❄️ Correlation Matrix ❄️")
 #st.markdown("❄️ Page 2 ❄️")
 #st.sidebar.markdown("❄️ Page 2 ❄️")
 st.divider()
 
-st.header('Correlation Matrix')
+st.header('Strength of Relationship between Indicators:')
 
 ## Display Correlation Matrix
 corr_matrix = full_df.corr()
-
-# Display the correlation matrix DataFrame
-st.write("Strength of Relationship between Indicators:", corr_matrix)
 
 # Option to display heatmap
 display_heatmap = st.checkbox("Display Heatmap")

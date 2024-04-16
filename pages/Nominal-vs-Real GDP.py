@@ -68,7 +68,7 @@ selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= en
 
 # Plot Unemployment and CIVPART
 plt.figure(figsize=(10, 6))
-plt.plot(selected_data['Date'], selected_data['Unemployment'], label='Unemployment', marker='o')
+plt.plot(selected_data['Date'], selected_data['Unemployment Rate'], label='Unemployment', marker='o')
 plt.plot(selected_data['Date'], selected_data['CIVPART'], label='CIVPART', marker='o')
 plt.xlabel('Date')
 plt.ylabel('Value')

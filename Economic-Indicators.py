@@ -5,7 +5,7 @@ import seaborn as sns
 import streamlit as st
 from datetime import datetime, timedelta
 
-st.markdown("Economic Indicator Trends")
+st.title("Economic Indicator Trends")
 st.sidebar.markdown("Economic Indicator Trends")
 st.caption("App Creation for my Stat 386 class")
 st.divider()

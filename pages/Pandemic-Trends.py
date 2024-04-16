@@ -7,7 +7,7 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 st.title("Trends during the COVID-19 pandemic")
-st.write("_______")
+st.write("______")
 
 # Filter data from 2018 to present
 cpi_data = full_df[(full_df['Date'].dt.year >= 2018)]

@@ -7,9 +7,16 @@ from datetime import datetime, timedelta
 
 st.title("Economic Indicator Trends")
 #st.sidebar.markdown("Economic Indicator Trends")
-st.header("App Creation for my Stat 386 class")
+st.caption("App Creation for my Stat 386 class")
 st.divider()
 
+st.write("This app is designed to help explore my economic trends dataset")
+st.write("I've included a few EDA insights I found interesting as well as .... ___")
+st.write("Here is a link to my GitHub project folder:")
+st.markdown("[Economic Trends Folder](https://github.com/t-anderson21/blog-project/tree/main)")
+
+
+st.divider()
 # Read in dataset from GitHub
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])

@@ -26,7 +26,7 @@ selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= en
 
 # Plot CPI
 plt.figure(figsize=(10, 6))
-plt.bar(selected_data['Date'], selected_data['CPI'])
+plt.line(selected_data['Date'], selected_data['CPI'])
 plt.xlabel('Date')
 plt.ylabel('CPI')
 plt.title(f'CPI Over the Last 5 Years (Starting from {start_date.strftime("%B %Y")})')

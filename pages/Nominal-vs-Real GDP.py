@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
-st.header("Comparison of Nominal and Real GDP")
+st.title("Comparison of Nominal and Real GDP")
 st.write("🎈 Real GDP is inflation adjusted 🎈")
 st.divider()
 

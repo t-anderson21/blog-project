@@ -10,8 +10,7 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 
 st.title("❄️ Correlation Matrix ❄️")
-#st.markdown("❄️ Page 2 ❄️")
-#st.sidebar.markdown("❄️ Page 2 ❄️")
+st.write("A table used to identify and visualize patterns in the economic data I created")
 st.divider()
 
 st.header('Strength of Relationship between Indicators:')

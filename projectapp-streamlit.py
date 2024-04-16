@@ -12,7 +12,6 @@ st.divider()
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
-
 # filtered data for after 2019
 filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
@@ -37,10 +36,6 @@ st.dataframe(background_gradient(year_df))
 
 
 st.divider()
-
-st.title('See more on Page 2 / 3')
-st.title('Create graph with multiple lines')
-
 
 # Allow user to select the variable
 selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'Nominal GDP', 'Unemployment Rate'])
@@ -122,6 +117,7 @@ plt.grid(True)
 st.pyplot(plt)
 
 
+st.title('See more on Pages 2 or 3')
 st.divider()
 # Add Source button at the bottom
 st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")

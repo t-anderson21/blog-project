@@ -33,10 +33,10 @@ selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= en
 # Plot Nominal GDP and GDP
 plt.figure(figsize=(10, 6))
 plt.plot(selected_data['Date'], selected_data['Nominal GDP'], label='Nominal GDP', marker='o')
-plt.plot(selected_data['Date'], selected_data['Real GDP'], label='GDP', marker='o')
+plt.plot(selected_data['Date'], selected_data['GDP'], label='Real GDP', marker='o')
 plt.xlabel('Date')
 plt.ylabel('Value')
-plt.title(f'Nominal GDP vs GDP ({selected_duration})')
+plt.title(f'Nominal GDP vs Real GDP ({selected_duration})')
 plt.legend()
 plt.xticks(rotation=45)
 plt.grid(True)

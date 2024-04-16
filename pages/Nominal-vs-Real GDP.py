@@ -56,7 +56,7 @@ CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 yea
 # Calculate start date based on selected duration
 end_date = datetime.now()
 if CIVPART_duration == 'Past year':
-    begin_date = end_date - timedelta(days=365)
+    begin_date = 2023-01-01
 elif CIVPART_duration == '5 years':
     begin_date = end_date - timedelta(days=365*5)
 elif CIVPART_duration == '10 years':

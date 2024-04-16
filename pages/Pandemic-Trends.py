@@ -10,4 +10,4 @@ st.title(" Trends during the COVID-19 pandemic")
 
 
 
-st.head("Future Research on Predictors of Recessions....")
+st.header("Future Research on Predictors of Recessions....")

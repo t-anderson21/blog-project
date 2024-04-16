@@ -90,8 +90,30 @@ if display_heatmap:
 
 st.divider()
 
-# Sidebar: Select start and end dates
+# Allow the user to select start and end dates
+start_date = st.text_input('Enter start date (YYYY-MM-DD)', '2018-01-01')
+end_date = st.text_input('Enter end date (YYYY-MM-DD)', '2022-12-31')
 
+# Convert start and end dates to datetime objects
+start_date = pd.to_datetime(start_date)
+end_date = pd.to_datetime(end_date)
+
+# Filter DataFrame based on user-selected start and end dates
+selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
+
+# Plot Nominal GDP and GDP
+plt.figure(figsize=(10, 6))
+plt.plot(selected_data['Date'], selected_data['Nominal GDP'], label='Nominal GDP', marker='o')
+plt.plot(selected_data['Date'], selected_data['GDP'], label='GDP', marker='o')
+plt.xlabel('Date')
+plt.ylabel('Value')
+plt.title('Nominal GDP vs GDP')
+plt.legend()
+plt.xticks(rotation=45)
+plt.grid(True)
+
+# Display the plot
+st.pyplot(plt)
 
 
 st.divider()

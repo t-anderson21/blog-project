@@ -48,7 +48,7 @@ plt.grid(True)
 st.pyplot(plt)
 
 st.header("Comparison of Unemployment Rate and CIVPART")
-st.write("🎈 CIVPART measures the percentage of the working-age population who are either employed or actively seeking employment 🎈")
+st.write("🎈 CIVPART measures the percentage of the working-age population who are employed or actively seeking a job 🎈")
 
 # Allow the user to select the duration of data to visualize
 CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 years', '5 years', 'Past year'])

@@ -4,6 +4,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
+# Set Streamlit configuration options dynamically
+st.set_option('theme.base', 'light')
+st.set_option('theme.primaryColor', '#f63366')
+st.set_option('theme.backgroundColor', '#ffffff')
+st.set_option('theme.secondaryBackgroundColor', '#f0f2f6')
+st.set_option('theme.textColor', '#262730')
+st.set_option('theme.font', 'sans serif')
+
 st.title('Economic Indicator Trends')
 st.caption("App Creation for my Stat 386 class")
 st.divider()
@@ -91,30 +99,7 @@ if display_heatmap:
 st.divider()
 
 # Sidebar: Select start and end dates
-start_date = st.sidebar.date_input('Start Date', min_value=full_df['Date'].min(), max_value=full_df['Date'].max(), value=full_df['Date'].min())
-end_date = st.sidebar.date_input('End Date', min_value=full_df['Date'].min(), max_value=full_df['Date'].max(), value=full_df['Date'].max())
 
-# Filter DataFrame based on selected dates
-filtered_df = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
-
-# Plot Nominal GDP and GDP
-plt.figure(figsize=(10, 6))
-plt.plot(filtered_df['Date'], filtered_df['Nominal GDP'], label='Nominal GDP', color='blue')
-plt.plot(filtered_df['Date'], filtered_df['GDP'], label='GDP', color='green')
-
-# Add title and labels
-plt.title('Nominal GDP vs. GDP')
-plt.xlabel('Date')
-plt.ylabel('Amount')
-
-# Rotate x-axis labels for better readability
-plt.xticks(rotation=45)
-
-# Add legend
-plt.legend()
-
-# Show plot
-st.pyplot(plt)
 
 
 st.divider()

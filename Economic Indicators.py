@@ -10,7 +10,7 @@ st.title("Economic Indicator Trends")
 st.caption("Project App Creation for Stat 386")
 st.divider()
 
-st.write("Welcome to my app!")
+st.write("Welcome!")
 st.write("This app is designed to help explore my economic trends dataset. I've included a few exploratory data analysis insights that I found interesting. You can interactively visualize the data, customize the time range, and analyze correlations between different economic indicators. My goal is to help the user visualize economic terms often heard on the news or social media. I hope it can help unravel the numbers driving the US economy.")
 
 st.divider()

@@ -3,8 +3,10 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from datetime import datetime, timedelta
 
-st.title('Economic Indicator Trends')
+st.markdown("Economic Indicator Trends")
+st.sidebar.markdown("Economic Indicator Trends")
 st.caption("App Creation for my Stat 386 class")
 st.divider()
 
@@ -15,7 +17,6 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 # filtered data for after 2019
 filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
 
-st.sidebar.markdown("# Main page 🎈")
 st.sidebar.markdown("# Page 2 ❄️")
 st.sidebar.markdown("# Page 3 🎉")
 

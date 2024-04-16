@@ -55,19 +55,19 @@ CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 yea
 
 # Calculate start date based on selected duration
 end_date = datetime.now()
-if CIVPART_duration == 'Last year':
-    start_date1 = end_date - timedelta(days=365)
-elif CIVPART_duration == 'Last 5 years':
-    start_date1 = end_date - timedelta(days=365*5)
-elif CIVPART_duration == 'Last 10 years':
-    start_date1 = end_date - timedelta(days=365*10)
-elif CIVPART_duration == 'Last 15 years':
-    start_date1 = end_date - timedelta(days=365*15)
-elif CIVPART_duration == 'Last 20 years':
-    start_date1 = end_date - timedelta(days=365*20)
+if CIVPART_duration == 'Past year':
+    begin_date = end_date - timedelta(days=365)
+elif CIVPART_duration == '5 years':
+    begin_date = end_date - timedelta(days=365*5)
+elif CIVPART_duration == '10 years':
+    begin_date = end_date - timedelta(days=365*10)
+elif CIVPART_duration == '15 years':
+    begin_date = end_date - timedelta(days=365*15)
+elif CIVPART_duration == '20 years':
+    begin_date = end_date - timedelta(days=365*20)
 
 # Filter DataFrame based on selected duration
-selected_data = full_df[(full_df['Date'] >= start_date1) & (full_df['Date'] <= end_date)]
+selected_data = full_df[(full_df['Date'] >= begin_date) & (full_df['Date'] <= end_date)]
 
 # Plot Unemployment and CIVPART
 plt.figure(figsize=(10, 6))
@@ -75,10 +75,12 @@ plt.plot(selected_data['Date'], selected_data['Unemployment Rate'], label='Unemp
 plt.plot(selected_data['Date'], selected_data['CIVPART'], label='CIVPART', marker='o')
 plt.xlabel('Date')
 plt.ylabel('Value')
-plt.title(f'Unemployment vs CIVPART ({selected_duration})')
+plt.title(f'Unemployment vs CIVPART ({CIVPART_duration})')
 plt.legend()
 plt.xticks(rotation=45)
 plt.grid(True)
 
 # Display the plot
 st.pyplot(plt)
+
+st.link_button("CIVPART data source", "https://fred.stlouisfed.org/series/CIVPART")

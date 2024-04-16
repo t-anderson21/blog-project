@@ -22,7 +22,7 @@ st.sidebar.markdown("# Page 3 🎉")
 
 
 year = st.slider('Choose a year', 1948, 2023)
-st.header(f'Top Indicators?? {year}')
+st.header(f'Top Indicators -- shift to page 2 ? {year}')
 year_df = full_df[full_df['Date'].dt.year == year]
 year_df['Date'] = year_df['Date'].dt.strftime('%Y-%m-%d')
 year_df = year_df.round(2)
@@ -38,7 +38,8 @@ st.dataframe(background_gradient(year_df))
 
 st.divider()
 
-
+st.title('See more on Page 2 / 3')
+st.title('Create graph with multiple lines')
 
 
 # Allow user to select the variable

@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 st.title("Economic Indicator Trends")
 #st.sidebar.markdown("Economic Indicator Trends")
-st.caption("App Creation for my Stat 386 class")
+st.header("App Creation for my Stat 386 class")
 st.divider()
 
 # Read in dataset from GitHub
@@ -15,7 +15,9 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 # filtered data for after 2019
-filtered_df = full_df[(full_df['Date'].dt.year >= 2019)]
+filtered_df = full_df[(full_df['Date'].dt.year >= 1950)]
+
+st.caption("Filtered to be from 1950 to present")
 
 year = st.slider('Choose a year', 1948, 2023)
 st.header(f'Top Indicators -- shift to page 2 ? {year}')

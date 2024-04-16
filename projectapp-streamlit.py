@@ -102,7 +102,7 @@ end_date = pd.to_datetime(end_date)
 selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
 
 # Plot Nominal GDP and GDP
-plt.figure(figsize=(10, 6))
+#plt.figure(figsize=(10, 6))
 plt.plot(selected_data['Date'], selected_data['Nominal GDP'], label='Nominal GDP', marker='o')
 plt.plot(selected_data['Date'], selected_data['GDP'], label='GDP', marker='o')
 plt.xlabel('Date')

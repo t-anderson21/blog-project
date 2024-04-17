@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-from datetime import datetime, timedelta
 
 st.title("Economic Indicator Trends")
 #st.sidebar.markdown("Economic Indicator Trends")

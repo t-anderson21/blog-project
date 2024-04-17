@@ -9,13 +9,13 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 
-st.title("Correlation Matrix")
+st.title("Strength of Relationship between Indicators:")
 st.write("A table used to identify and visualize patterns in the economic data I created")
 st.divider()
 
 st.write("add something about 0< <1  created")
 
-st.header('Strength of Relationship between Indicators:')
+st.header('Correlation Matrix')
 
 ## Display Correlation Matrix
 corr_matrix = full_df.drop(columns=['Date']).corr()

@@ -85,5 +85,17 @@ plt.grid(True)
 # Display the plot
 st.pyplot(plt)
 
+# Calculate GDP growth rate
+full_df['GDP_growth_rate'] = full_df['GDP'].pct_change() * 100
+
+# Display GDP growth rate table
+st.write("GDP Growth Rate Table:")
+st.write(full_df[['Date', 'GDP_growth_rate']].describe())
+
+# Display max and min values for indicators
+st.write("Maximum and Minimum Values for Indicators:")
+indicators_max_min = full_df.drop(columns=['Date']).agg(['max', 'min'])
+st.write(indicators_max_min)
+
 st.link_button("CIVPART data", "https://fred.stlouisfed.org/series/CIVPART")
 st.link_button("Unemployment Rate data", "https://fred.stlouisfed.org/series/UNRATE")

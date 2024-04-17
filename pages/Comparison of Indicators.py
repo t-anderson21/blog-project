@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 import streamlit as st
 from datetime import datetime, timedelta
 
@@ -30,19 +30,16 @@ elif selected_duration == 'Last 20 years':
 # Filter DataFrame based on selected duration
 selected_data = full_df[(full_df['Date'] >= start_date) & (full_df['Date'] <= end_date)]
 
-# Plot Nominal GDP and GDP
-plt.figure(figsize=(10, 6))
-plt.plot(selected_data['Date'], selected_data['Nominal GDP'], label='Nominal GDP', marker='o')
-plt.plot(selected_data['Date'], selected_data['GDP'], label='Real GDP', marker='o')
-plt.xlabel('Date')
-plt.ylabel('Value')
-plt.title(f'Nominal GDP vs Real GDP ({selected_duration})')
-plt.legend()
-plt.xticks(rotation=45)
-plt.grid(True)
+# Create line plot for Nominal GDP and GDP
+fig = px.line(selected_data, x='Date', y=['Nominal GDP', 'GDP'], 
+              labels={'value': 'Value', 'Date': 'Date'}, 
+              title=f'Nominal GDP vs Real GDP ({selected_duration})')
 
-# Display the plot
-st.pyplot(plt)
+# Customize the layout
+fig.update_layout(xaxis_tickangle=-45, yaxis_title='Value')
+
+# Show the plot
+st.plotly_chart(fig)
 
 st.link_button("GDP data", "https://fred.stlouisfed.org/series/GDPC1")
 st.divider()
@@ -69,19 +66,15 @@ elif CIVPART_duration == '20 years':
 # Filter DataFrame based on selected duration
 selected_data = full_df[(full_df['Date'] >= begin_date) & (full_df['Date'] <= end_date)]
 
-# Plot Unemployment and CIVPART
-plt.figure(figsize=(10, 6))
-plt.plot(selected_data['Date'], selected_data['Unemployment Rate'], label='Unemployment', marker='o')
-plt.plot(selected_data['Date'], selected_data['CIVPART'], label='CIVPART', marker='o')
-plt.xlabel('Date')
-plt.ylabel('Value')
-plt.title(f'Unemployment vs CIVPART ({CIVPART_duration})')
-plt.legend()
-plt.xticks(rotation=45)
-plt.grid(True)
+# Create line plot for Unemployment and CIVPART
+fig2 = px.line(selected_data, x='Date', y=['Unemployment Rate', 'CIVPART'], 
+              labels={'value': 'Value', 'Date': 'Date'}, 
+              title=f'Unemployment vs CIVPART ({CIVPART_duration})',
+              color_discrete_map={'Unemployment Rate': 'red', 'CIVPART': 'green'})
 
-# Display the plot
-st.pyplot(plt)
+# Show the plot
+st.plotly_chart(fig2)
+
 st.divider()
 
 

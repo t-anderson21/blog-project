@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 import streamlit as st
 
 st.title("Economic Indicators Dashboard")
@@ -24,18 +24,13 @@ selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'N
 st.header(f'Trends of {selected_variable} since 2000')
 st.write("Here are the 5 indicators I've isolated for this dashboard to explore. By toggling between variables, users can uncover overarching trends and gain insights into the recent economic landscape. FRED data does start in 1945 but this plot only looks at the last 25 years because I wanted to focus on the 2009 recession and 2020 pandemic recession.")
 
-# Create a line plot based on the selected variable
-plt.figure(figsize=(10, 6))
-plt.plot(filtered_df['Date'], filtered_df[selected_variable], marker='o', linestyle='-')
-plt.title(f'{selected_variable} from 2019 to 2024')
-plt.xlabel('Date')
-plt.ylabel(selected_variable)
-plt.grid(True)
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.tight_layout()
+# Create line plot using plotly.express
+fig1 = px.line(filtered_df, x='Date', y=selected_variable,
+              labels={'value': selected_variable, 'Date': 'Date'},
+              title=f'{selected_variable} from 2019 to 2024')
 
-# Display the plot using st.pyplot()
-st.pyplot(plt)
+# Show the plot
+st.plotly_chart(fig1)
 
 
 st.divider()

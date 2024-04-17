@@ -46,6 +46,9 @@ plt.grid(True)
 # Display the plot
 st.pyplot(plt)
 
+st.link_button("GDP data", "https://fred.stlouisfed.org/series/GDPC1")
+st.divider()
+
 st.header("Comparison of Unemployment Rate &  CIVPART")
 st.write("CIVPART measures the percentage of the working-age population who are employed or actively seeking a job. This indicator offers valuable insights into the dynamics of workforce participation, and has been in recent decline only made worse by the pandemic. Unemployment rate is the opposite metric and should always move opposite to CIVPART.")
 

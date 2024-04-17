@@ -25,6 +25,8 @@ fig1.update_layout(title='CPI Trends (2018 - Present)',
 # Display the plot in Streamlit
 st.plotly_chart(fig1)
 
+st.link_button("FRED data: CPI", "https://fred.stlouisfed.org/series/CPIAUCSL")
+
 st.divider()
 
 # Calculate GDP / Nominal growth percentage
@@ -56,6 +58,4 @@ fig.update_layout(title='GDP vs Nominal GDP Change (2018 - Present)',
 # Display the plot in Streamlit
 st.plotly_chart(fig)
 
-
-st.link_button("FRED data: CPI", "https://fred.stlouisfed.org/series/CPIAUCSL")
 st.link_button("FRED data: Nominal GDP", "https://fred.stlouisfed.org/series/NGDPSAXDCUSQ")

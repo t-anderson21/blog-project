@@ -36,20 +36,24 @@ change_df = full_df[['Date', 'gdp_growth', 'nominal_growth']]
 # Filter the DataFrame for data from 2018 to present
 change_df = change_df[change_df['Date'] >= '2018-01-01']
 
+# Create interactive line plot with Plotly
+fig = go.Figure()
 
-fig2, ax2 = plt.subplots(figsize=(10, 6))
-ax2.plot(change_df['Date'], change_df['gdp_growth'], label='Real GDP Change')
-ax2.plot(change_df['Date'], change_df['nominal_growth'], label='Nominal GDP Change')
-ax2.set_xlabel('Date')
-ax2.set_ylabel('Percentage Change')
-ax2.set_title('GDP vs Nominal GDP Change (2018 - Present)')
-ax2.legend()
-ax2.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
+# Add Real GDP Change trace
+fig.add_trace(go.Scatter(x=change_df['Date'], y=change_df['GDP_Growth'], mode='lines', name='Real GDP Change'))
+
+# Add Nominal GDP Change trace
+fig.add_trace(go.Scatter(x=change_df['Date'], y=change_df['nominal_growth'], mode='lines', name='Nominal GDP Change'))
+
+# Update layout
+fig.update_layout(title='GDP vs Nominal GDP Change (2018 - Present)',
+                  xaxis_title='Date',
+                  yaxis_title='Percentage Change',
+                  xaxis=dict(tickangle=-45),
+                  legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01))
 
 # Display the plot in Streamlit
-st.pyplot(fig2)
+st.plotly_chart(fig)
 
 
 st.link_button("FRED data: CPI", "https://fred.stlouisfed.org/series/CPIAUCSL")

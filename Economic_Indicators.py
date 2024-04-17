@@ -22,7 +22,7 @@ filtered_df = full_df[(full_df['Date'].dt.year >= 2000)]
 selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'Nominal GDP', 'Unemployment Rate'])
 
 st.header(f'Trends of {selected_variable} since 2000')
-st.write("Here are the 5 indicators I've isolated for this dashboard to explore. By toggling between variables, users can uncover overarching trends and gain insights into the recent economic landscape. FRED data does start in 1945 but this plot only looks at the last 25 years because I wanted to focus on the 2009 recession and 2020 pandemic recession.")
+st.write("Above are the 5 indicators I've isolated for this dashboard to explore. By toggling between variables, users can uncover overarching trends and gain insights into the recent economic landscape. FRED data does start in 1945 but this plot only looks at the last 25 years because I wanted to focus on the 2009 recession and 2020 pandemic recession.")
 
 # Create line plot using plotly.express
 fig1 = px.line(filtered_df, x='Date', y=selected_variable,

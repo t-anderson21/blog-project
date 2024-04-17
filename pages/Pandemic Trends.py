@@ -13,14 +13,17 @@ st.write("A closer look at CPI shows the sudden growth of inflation as well as t
 # Filter data from 2018 to present
 cpi_data = full_df[(full_df['Date'].dt.year >= 2018)]
 
-# Create a line plot of CPI
-plt.figure(figsize=(10, 6))
-plt.plot(cpi_data['Date'], cpi_data['CPI'], marker='o', linestyle='-')
-plt.title('CPI Trends (2018 - Present)')
-plt.xlabel('Date')
-plt.ylabel('CPI')
-plt.grid(True)
-plt.xticks(rotation=45)
+# Create a line plot of CPI with Plotly
+fig1 = go.Figure()
+fig1.add_trace(go.Scatter(x=cpi_data['Date'], y=cpi_data['CPI'], mode='lines+markers'))
+fig1.update_layout(title='CPI Trends (2018 - Present)',
+                  xaxis_title='Date',
+                  yaxis_title='CPI',
+                  xaxis=dict(tickangle=-45),
+                  legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01))
+
+# Display the plot in Streamlit
+st.plotly_chart(fig1)
 
 # Display the plot
 st.pyplot(plt)

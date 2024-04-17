@@ -38,3 +38,10 @@ if display_heatmap:
 
     # Display the heatmap in Streamlit
     st.plotly_chart(fig)
+
+# Option to display correlation table
+display_correlation_table = st.checkbox("Display Correlation Table")
+
+if display_correlation_table:
+    # Print the correlation table
+    st.write(full_df.drop(columns=['Date']).corr())

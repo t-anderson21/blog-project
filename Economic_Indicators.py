@@ -1,6 +1,6 @@
 import pandas as pd
 import plotly.express as px
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import streamlit as st
 
 st.title("Economic Indicators Dashboard")
@@ -40,18 +40,24 @@ year = st.slider('Choose a year', 1950, 2023)
 
 st.header(f'Top Economic Indicators for {year}')
 st.write("The table provides an overview of key economic metrics for the selected year. The indicators included in the table highlight critical aspects of economic health and performance. By examining these indicators collectively, users can gain a better understanding of how the entire economy was doing during the specified year.")
-
+    
+# Filter DataFrame based on selected year
 year_df = full_df[full_df['Date'].dt.year == year]
 year_df['Date'] = year_df['Date'].dt.strftime('%Y-%m-%d')
 year_df = year_df.round(2)
-    
-# Define a function to apply background gradient to columns
-def background_gradient(df):
-     return df.style.background_gradient(cmap='Blues')
 
-# Display the head of the DataFrame with style shading the columns
-st.dataframe(background_gradient(year_df))
-#st.write(year_df)
+# Create an interactive table using Plotly graph objects
+fig = go.Figure(data=[go.Table(
+    header=dict(values=list(year_df.columns),
+                fill_color='paleturquoise',
+                align='center'),
+    cells=dict(values=[year_df[col] for col in year_df.columns],
+               fill_color='lavender',
+               align='center'))
+])
+
+# Display the interactive table
+st.plotly_chart(fig)
 
 st.divider()
 st.write('See more on Pages 2, 3, & 4')

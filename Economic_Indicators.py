@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 st.title("Economic Indicator Trends")
 #st.sidebar.markdown("Economic Indicator Trends")
-st.caption("Project App Creation for Stat 386")
+st.caption("Project App Creation for Stat 386, by Talmage Anderson")
 st.divider()
 
 st.write("Welcome!")
@@ -25,7 +25,7 @@ filtered_df = full_df[(full_df['Date'].dt.year >= 2000)]
 selected_variable = st.selectbox("Select Variable", ['GDP', 'CPI', 'CIVPART', 'Nominal GDP', 'Unemployment Rate'])
 
 st.header(f'Trends of {selected_variable} since 2000')
-st.caption("FRED data starts in 1945")
+st.write("Here are the 5 indicators I've isolated for this dashboard to explore. By toggling between variables, users can uncover overarching trends and gain insights into the recent economic landscape. FRED data does start in 1945 but this plot only looks at the last 25 years because I wanted to focus on the 2009 recession and 2020 pandemic recession.")
 
 # Create a line plot based on the selected variable
 plt.figure(figsize=(10, 6))
@@ -45,7 +45,9 @@ st.divider()
 
 year = st.slider('Choose a year', 1950, 2023)
 
-st.header(f'Top Indicators for {year}')
+st.header(f'Top Economic Indicators for {year}')
+st.write("The table provides an overview of key economic metrics for the selected year. The indicators included in the table highlight critical aspects of economic health and performance. By examining these indicators collectively, users can gain a better understanding of how the entire economy was doing during the specified year.")
+
 year_df = full_df[full_df['Date'].dt.year == year]
 year_df['Date'] = year_df['Date'].dt.strftime('%Y-%m-%d')
 year_df = year_df.round(2)
@@ -58,14 +60,12 @@ def background_gradient(df):
 st.dataframe(background_gradient(year_df))
 #st.write(year_df)
 
-
-
-st.write('See more on Pages 2, 3, & 4')
 st.divider()
+st.write('See more on Pages 2, 3, & 4')
 
 # Add Source button at the bottom
-st.link_button("FRED data source", "https://fred.stlouisfed.org")
+st.link_button("Link to data source: FRED", "https://fred.stlouisfed.org")
 
 st.divider()
-st.write("Here is a link to my GitHub project folder:")
+st.write("Here is a link to my GitHub project folder to see data collection & general EDA:")
 st.markdown("[Economic Trends Folder](https://github.com/t-anderson21/blog-project/tree/main)")

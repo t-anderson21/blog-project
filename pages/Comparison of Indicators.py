@@ -10,8 +10,7 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 st.title("Comparison of Nominal & Real GDP")
-st.write("Nominal GDP measures current prices without adjusting for inflation")
-st.write("Real GDP is inflation adjusted")
+st.write("Nominal GDP measures current prices without adjusting for inflation while real GDP is readjusted for inflation. Nominal means 'in name only' or that nominal GDP gauges the economic output of a country at current market prices. In contrast, real GDP offers a more nuanced perspective by adjusting for inflation, thereby providing a clearer picture of the true economic growth or contraction over time. By accounting for inflation, real GDP allows analysts and policymakers to discern underlying trends in economic performance, separate from the distortions caused by changes in price levels.")
 st.divider()
 
 # Allow the user to select the duration of data to visualize
@@ -48,7 +47,7 @@ plt.grid(True)
 st.pyplot(plt)
 
 st.header("Comparison of Unemployment Rate &  CIVPART")
-st.write("CIVPART measures the percentage of the working-age population who are employed or actively seeking a job")
+st.write("CIVPART measures the percentage of the working-age population who are employed or actively seeking a job. This indicator offers valuable insights into the dynamics of workforce participation, and has been in recent decline only made worse by the pandemic. Unemployment rate is the opposite metric and should always move opposite to CIVPART.")
 
 # Allow the user to select the duration of data to visualize
 CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 years', '5 years', 'Past year'])
@@ -83,4 +82,5 @@ plt.grid(True)
 # Display the plot
 st.pyplot(plt)
 
-st.link_button("CIVPART data source", "https://fred.stlouisfed.org/series/CIVPART")
+st.link_button("CIVPART data", "https://fred.stlouisfed.org/series/CIVPART")
+st.link_button("Unemployment Rate data", "https://fred.stlouisfed.org/series/UNRATE")

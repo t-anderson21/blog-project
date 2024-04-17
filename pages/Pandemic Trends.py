@@ -7,7 +7,7 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 st.title("Trends during the COVID-19 pandemic")
-st.write("I found ..........")
+st.write("A closer look at CPI shows the sudden growth of inflation as well as the sudden shock to GDP growth when the pandemic hit. The spike back up in GDP comes from the burst of government spending.")
 
 # Filter data from 2018 to present
 cpi_data = full_df[(full_df['Date'].dt.year >= 2018)]
@@ -52,6 +52,4 @@ plt.tight_layout()
 st.pyplot(fig2)
 
 
-st.header("Future Research on Predictors of Recessions....")
-
-st.link_button("FRED data source", "https://fred.stlouisfed.org/series/CPIAUCSL")
+st.link_button("FRED data: CPI", "https://fred.stlouisfed.org/series/CPIAUCSL")

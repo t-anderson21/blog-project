@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 from datetime import datetime, timedelta
+import plotly.graph_objects as go
 
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
@@ -40,7 +41,7 @@ change_df = change_df[change_df['Date'] >= '2018-01-01']
 fig = go.Figure()
 
 # Add Real GDP Change trace
-fig.add_trace(go.Scatter(x=change_df['Date'], y=change_df['GDP_Growth'], mode='lines', name='Real GDP Change'))
+fig.add_trace(go.Scatter(x=change_df['Date'], y=change_df['gdp_growth'], mode='lines', name='Real GDP Change'))
 
 # Add Nominal GDP Change trace
 fig.add_trace(go.Scatter(x=change_df['Date'], y=change_df['nominal_growth'], mode='lines', name='Nominal GDP Change'))

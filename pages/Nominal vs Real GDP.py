@@ -9,9 +9,9 @@ from datetime import datetime, timedelta
 full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
-st.title("Comparison of Nominal and Real GDP")
-st.write("🎈 Nominal GDP measures current prices without adjusting for inflation 🎈")
-st.write("🎈 Real GDP is inflation adjusted 🎈")
+st.title("Comparison of Nominal & Real GDP")
+st.write("Nominal GDP measures current prices without adjusting for inflation")
+st.write("Real GDP is inflation adjusted")
 st.divider()
 
 # Allow the user to select the duration of data to visualize
@@ -47,8 +47,8 @@ plt.grid(True)
 # Display the plot
 st.pyplot(plt)
 
-st.header("Comparison of Unemployment Rate and CIVPART")
-st.write("🎈 CIVPART measures the percentage of the working-age population who are employed or actively seeking a job 🎈")
+st.header("Comparison of Unemployment Rate &  CIVPART")
+st.write("CIVPART measures the percentage of the working-age population who are employed or actively seeking a job")
 
 # Allow the user to select the duration of data to visualize
 CIVPART_duration = st.selectbox('Select years', ['20 years', '15 years', '10 years', '5 years', 'Past year'])

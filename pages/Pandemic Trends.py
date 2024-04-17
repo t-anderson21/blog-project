@@ -38,7 +38,7 @@ change_df = change_df[change_df['Date'] >= '2018-01-01']
 
 
 fig2, ax2 = plt.subplots(figsize=(10, 6))
-ax2.plot(change_df['Date'], change_df['GDP_Growth'], label='Real GDP Change')
+ax2.plot(change_df['Date'], change_df['gdp_growth'], label='Real GDP Change')
 ax2.plot(change_df['Date'], change_df['nominal_growth'], label='Nominal GDP Change')
 ax2.set_xlabel('Date')
 ax2.set_ylabel('Percentage Change')

@@ -8,7 +8,7 @@ full_df = pd.read_csv("full_data.csv")
 full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 st.title("Trends during the COVID-19 pandemic")
-st.write("A closer look at CPI shows the sudden growth of inflation as well as the sudden shock to GDP growth when the pandemic hit. The spike back up in GDP comes from the burst of government spending.")
+st.write("A closer look at CPI shows the sudden growth of inflation as well as the sudden shock to GDP growth when the pandemic hit. The spike back up in GDP comes from the burst of government spending. I used import plotly.graph_objects to make the graphs downloadable.")
 
 # Filter data from 2018 to present
 cpi_data = full_df[(full_df['Date'].dt.year >= 2018)]
@@ -24,9 +24,6 @@ fig1.update_layout(title='CPI Trends (2018 - Present)',
 
 # Display the plot in Streamlit
 st.plotly_chart(fig1)
-
-# Display the plot
-st.pyplot(plt)
 
 st.divider()
 

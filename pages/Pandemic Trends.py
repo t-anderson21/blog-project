@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-from datetime import datetime, timedelta
 import plotly.graph_objects as go
 
 full_df = pd.read_csv("full_data.csv")

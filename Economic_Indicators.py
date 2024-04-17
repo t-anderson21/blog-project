@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-st.title("Economic Indicator Trends")
+st.title("Economic Indicators Dashboard")
 #st.sidebar.markdown("Economic Indicator Trends")
-st.caption("Project App Creation for Stat 386, by Talmage Anderson")
+st.write("Project App Creation for Stat 386, by Talmage Anderson")
 st.divider()
 
 st.write("Welcome!")

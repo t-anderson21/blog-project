@@ -58,3 +58,4 @@ st.plotly_chart(fig)
 
 
 st.link_button("FRED data: CPI", "https://fred.stlouisfed.org/series/CPIAUCSL")
+st.link_button("FRED data: Nominal GDP", "https://fred.stlouisfed.org/series/NGDPSAXDCUSQ")

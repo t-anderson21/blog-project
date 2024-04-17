@@ -8,7 +8,7 @@ full_df['Date'] = pd.to_datetime(full_df['Date'])
 
 
 st.title("Strength of Relationship between Indicators:")
-st.write("A table used to identify and visualize patterns in the economic variables. A correlation value measures how closely two variables move together. The correlation coefficient can range from -1 to 1. If the correlation coefficient is closer to -1 or 1, it indicates a stronger positive or negative correlation between the variables. This allows insights into the extent to which changes in one variable correspond to changes in another, offering insights into potential cause-and-effect relationships.")
+st.write("A correlation matrix can be used to identify and visualize patterns in the economic variables. A correlation value measures how closely two variables move together. The correlation coefficients can range from -1 to 1. If the value is closer to -1 or 1, it indicates a stronger positive or negative correlation between the variables. This allows insights into the extent to which changes in one variable correspond to changes in another, offering insights into potential cause-and-effect relationships.")
 st.divider()
 
 st.header('Correlation Matrix')

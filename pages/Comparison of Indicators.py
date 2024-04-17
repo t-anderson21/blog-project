@@ -89,11 +89,11 @@ st.pyplot(plt)
 full_df['GDP_growth_rate'] = full_df['GDP'].pct_change() * 100
 
 # Display GDP growth rate table
-st.write("GDP Growth Rate Table:")
+st.header("GDP Growth Rate Table:")
 st.write(full_df[['Date', 'GDP_growth_rate']].describe())
 
 # Display max and min values for indicators
-st.write("Maximum and Minimum Values for Indicators:")
+st.header("Maximum and Minimum Values for Indicators:")
 indicators_max_min = full_df.drop(columns=['Date']).agg(['max', 'min'])
 st.write(indicators_max_min)
 
